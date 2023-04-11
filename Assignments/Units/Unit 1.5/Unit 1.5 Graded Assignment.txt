@@ -1,0 +1,17 @@
+from typing import List
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    sub: bool
+
+def subscribed_users(list_of_users: List[User]) -> List[User]:
+    """ Filters for subscribed users """
+    return [user for user in list_of_users if user.sub]
+
+def notify_subscribed_users(list_of_users: List[User]) -> None:
+    for user in subscribed_users(list_of_users):
+        notify(user)
+
+def notify(user: User) -> None:
+    pass
