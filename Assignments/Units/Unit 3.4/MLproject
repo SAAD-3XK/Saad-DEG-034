@@ -1,0 +1,15 @@
+name: basic_mlflow
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    # here we specify the parameters that the our main function takes
+    parameters:
+      solver_name:
+        type: str
+        default: "lbfgs"
+      logreg_type:
+        type: str
+        default: "multinomial"
+    command: "python new_train.py {logreg_type} {solver_name}"
