@@ -1,0 +1,17 @@
+version: '3'
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile #basing our dockercompose on the Dockerfile
+    ports:
+      - "5005-5006:5000" #specifying a range of ports for the multiple instances
+    volumes:
+      - vol_data:/home/app/vol
+    deploy:
+      replicas: 2 #setting replicates allowing for multiple instances of containers to be created
+    environment:
+      - LOG_LEVEL=debug #this can be changed to info as needed
+
+volumes:
+  vol_data: #setting up volume so that data can be persisted
